@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "AracArama";
+}
+
+@model List<Arac>
+<h2>Uygun Araç Listesi</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Kategori</td>
+            <td>Marka</td>
+            <td>Model</td>
+            <td>Vites</td>
+            <td>Günlük Ücret</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Kategori</td>
+                <td>@item.Marka</td>
+                <td>@item.Model</td>
+                <td>@item.Vites</td>
+                <td>@item.Ucret</td>
+                <td> <a class="btn btn-dark" asp-controller="Home" asp-action="AracSecim" asp-route-id="@item.Id">Seç</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "AracKirala";
+}
+
+@model AracDurumu
+
+<div class="row">
+    <div class="col-md-6 offset-3">
+        <h2>Araç Kiralama Detay</h2>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success col-md-6 offset-3" role="alert">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <div asp-validation-summary="ModelOnly" class="alert alert-danger col-md-6 offset-3" role="alert">
+        </div>
+
+        <form asp-controller="Member" asp-action="AracKirala" method="post" >
+            <input type="hidden"  asp-for="AracId"/>
+            <div class="row mb-3">
+                <label for="PasswordConfirm" class="col-md-4 col-form-label" asp-for="BaslangicTarihi"></label>
+                <div class="col-md-8">
+                    <input asp-for="BaslangicTarihi" class="form-control">
+                    <span asp-validation-for="BaslangicTarihi" class="text-danger"></span>
+
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="PasswordConfirm" class="col-md-4 col-form-label" asp-for="BitisTarihi"></label>
+                <div class="col-md-8">
+                    <input asp-for="BitisTarihi" class="form-control">
+                    <span asp-validation-for="BitisTarihi" class="text-danger"></span>
+
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col-md-8 offset-md-4">
+                    <button type="submit" class="btn btn-primary">Kirala</button>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+@* Servera gitmeden daha client gerekli validasyon kontroli yapılması *@
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

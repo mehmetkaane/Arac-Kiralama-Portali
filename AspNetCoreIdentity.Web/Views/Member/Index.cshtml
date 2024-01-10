@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model UserViewModel
+
+<div class="row">
+    <div class="col-md-4 offset-md-4 text-center">
+
+        <user-picture-tumbnail class="rounded" style="width:300px" picture-url="@Model.PhotoUrl"></user-picture-tumbnail>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Kullanıcı Bilgileri</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kullanıcı Adı</th>
+                    <th>Email</th>
+                    <th>Telefon</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>
+                    @Model.UserName
+                </td>
+                <td>
+                    @Model.Email
+                </td>
+                <td>
+                    @Model.PhoneNumber
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Kiralama Geçmişim</h1>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kategori</th>
+                    <th>Marka</th>
+                    <th>Model</th>
+                    <th>Vites</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Toplam Ücret</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.aracKiralamaList)
+            {
+                <tr>
+                    <th>@item.Kategori</th>
+                    <th>@item.Marka</th>
+                    <th>@item.Model</th>
+                    <th>@item.Vites</th>
+                    <th>@item.BasTar</th>
+                    <th>@item.BitTar</th>
+                    <th>@item.ToplamUcret</th>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "KiradakiAraclar";
+}
+@model List<AdminModel.AracKiralamaViewModel>
+<h2>Kiradaki Araçlar</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Kullanıcı Id</td>
+            <td>Kullanıcı Adı</td>
+            <td>Kategori</td>
+            <td>Marka</td>
+            <td>Model</td>
+            <td>Vites</td>
+            <td>Toplam Ücret</td>
+            <td>Başlangıç Tarihi</td>
+            <td>Bitiş Tarihi</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@item.UserId</th>
+                <th>@item.UserName</th>
+                <th>@item.Kategori</th>
+                <th>@item.Marka</th>
+                <th>@item.Model</th>
+                <th>@item.Vites</th>
+                <th>@item.ToplamUcret</th>
+                <th>@item.BasTar</th>
+                <th>@item.BitTar</th>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
